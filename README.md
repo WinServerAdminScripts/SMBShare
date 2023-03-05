@@ -1,1 +1,1 @@
-PowerShell script Collection to Windows Server Administration
+PowerShell Script Collections For Windows Server Administration
