@@ -1,2 +1,1 @@
-# remotesessionkill
-Remote server login session kill scripts
+PowerShell script Collection to Windows Server Administration
