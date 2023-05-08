@@ -1,3 +1,18 @@
+<#
+In Summery
+This PowerShell script is designed to set up a SMB share on a Windows server. It begins by creating the share using
+the New-SmbShare cmdlet, which allows for easy sharing of files and directories across a network. Next, it sets network
+rules to allow network discovery and file and printer sharing using netsh advfirewall and Set-NetFirewallRule cmdlets. 
+The script also sets services to start automatically using the Set-Service cmdlet, and disables SMB signing in the 
+registry using the Set-ItemProperty cmdlet. Finally, it starts necessary services for network discovery and file and 
+printer sharing using the Start-Service cmdlet. Overall, this script automates the process of setting up an SMB share, 
+ensuring that all necessary network rules and services are properly configured for optimal functionality.#>
+
+# Create an SMB share
+$shareName = "ShareName"
+$sharePath = "C:\SharePath"
+New-SmbShare -Name $shareName -Path $sharePath -FullAccess "Everyone"
+
 # Set network rules to allow network discovery and file and printer sharing
 netsh advfirewall firewall set rule group="Network Discovery" new enable=Yes
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
